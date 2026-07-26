@@ -1,46 +1,2748 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>کارت دعوت ❤️</title>
-<style>
-body{
-margin:0;height:100vh;display:flex;justify-content:center;align-items:center;
-background:linear-gradient(135deg,#ff9a9e,#fad0c4);
-font-family:tahoma;overflow:hidden}
-.card{background:white;padding:40px;border-radius:25px;text-align:center;
-box-shadow:0 10px 30px rgba(0,0,0,.2);width:90%;max-width:450px}
-h1{color:#ff4d6d}
-.buttons{margin-top:30px;position:relative;height:150px}
-button{border:none;padding:12px 30px;border-radius:50px;font-size:18px;cursor:pointer}
-#yes{background:#4CAF50;color:white}
-#no{background:#ff4d6d;color:white;position:absolute;left:60%;top:0}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>رزومه | عارف ابراهیمی</title>
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Tahoma, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+
+        /* =========================
+           VARIABLES
+        ========================= */
+
+        :root {
+            --primary: #2563eb;
+            --primary-light: #60a5fa;
+            --secondary: #7c3aed;
+
+            --bg: #0f172a;
+            --bg-light: #1e293b;
+
+            --card: rgba(30, 41, 59, 0.7);
+            --border: rgba(59, 130, 246, 0.3);
+
+            --text: #ffffff;
+            --muted: #cbd5e1;
+        }
+
+
+        /* =========================
+           SCROLLBAR
+        ========================= */
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 20px;
+        }
+
+
+        /* =========================
+           ACCESSIBILITY
+        ========================= */
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--primary-light);
+            outline-offset: 3px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
+
+        /* =========================
+           BACKGROUND GLOW
+        ========================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: #2563eb22;
+            border-radius: 50%;
+            filter: blur(120px);
+            top: -150px;
+            left: -150px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: #7c3aed22;
+            border-radius: 50%;
+            filter: blur(120px);
+            bottom: -150px;
+            right: -150px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+
+        /* =========================
+           CONTAINER
+        ========================= */
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 75px;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            color: var(--primary-light);
+            letter-spacing: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            position: relative;
+            color: #dbe2ea;
+            font-size: 14px;
+            transition: 0.3s;
+            padding-bottom: 4px;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: -2px;
+            width: 0;
+            height: 1px;
+            background: var(--primary-light);
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-light);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--primary-light);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .download-btn {
+            padding: 9px 20px;
+            border: 1px solid var(--primary);
+            border-radius: 8px;
+            color: var(--primary-light);
+            transition: 0.3s;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .download-btn:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            padding: 8px;
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--primary-light);
+            display: block;
+            transition: 0.3s;
+        }
+
+        .menu-toggle.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .menu-toggle.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            padding-top: 75px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background:
+                radial-gradient(circle at top left, #2563eb33, transparent 35%),
+                radial-gradient(circle at bottom right, #7c3aed33, transparent 35%);
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 80px;
+        }
+
+
+        /* =========================
+           PROFILE IMAGE
+        ========================= */
+
+        .profile-wrapper {
+            position: relative;
+            width: 340px;
+            height: 340px;
+            margin: auto;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-16px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 30px;
+            border: 4px solid var(--primary);
+            box-shadow: 0 0 45px rgba(59,130,246,0.5);
+            background: var(--bg-light);
+        }
+
+
+        /* =========================
+           HERO TEXT
+        ========================= */
+
+        .hero-text .small-title {
+            color: var(--primary-light);
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .hero-text h1 {
+            font-size: 60px;
+            line-height: 1.3;
+            margin-bottom: 10px;
+        }
+
+        .hero-text h1 span {
+            color: var(--primary-light);
+        }
+
+        .hero-text h2 {
+            color: #d5d9df;
+            font-size: 20px;
+            font-weight: normal;
+            margin-bottom: 25px;
+        }
+
+        .hero-text p {
+            color: var(--muted);
+            max-width: 600px;
+            font-size: 15px;
+            line-height: 2.2;
+        }
+
+
+        /* =========================
+           SOCIAL
+        ========================= */
+
+        .socials {
+            display: flex;
+            gap: 12px;
+            margin: 25px 0;
+        }
+
+        .social {
+            width: 45px;
+            height: 45px;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .social:hover {
+            border-color: var(--primary);
+            color: var(--primary-light);
+            transform: translateY(-5px);
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .btn {
+            padding: 13px 30px;
+            border-radius: 10px;
+            transition: 0.3s;
+            font-size: 14px;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(37,99,235,0.4);
+        }
+
+        .btn-outline {
+            color: var(--primary-light);
+            background: none;
+            border: 1px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title span.eyebrow {
+            color: var(--primary-light);
+            font-size: 12px;
+            letter-spacing: 3px;
+        }
+
+        .section-title h2 {
+            font-size: 34px;
+            color: #fff;
+            margin-top: 8px;
+        }
+
+        .section-title p {
+            color: var(--muted);
+            margin-top: 10px;
+        }
+
+
+        /* =========================
+           GLASS CARD
+        ========================= */
+
+        .glass-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 30px;
+        }
+
+        .about-text {
+            color: var(--muted);
+            line-height: 2.3;
+            text-align: justify;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .stat {
+            padding: 25px;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .stat h3 {
+            color: var(--primary-light);
+            font-size: 28px;
+        }
+
+        .stat p {
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--bg-light);
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 25px;
+            border-radius: 20px;
+            transition: 0.4s;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .skill-card.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .skill-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-10px);
+        }
+
+        .skill-top {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .skill-top h3 {
+            font-size: 16px;
+        }
+
+        .skill-top span {
+            color: var(--primary-light);
+        }
+
+        .progress {
+            height: 12px;
+            background: #334155;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress span {
+            display: block;
+            height: 100%;
+            width: 0;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 20px;
+            transition: width 1.2s ease;
+        }
+
+        .skill-card.soft {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .soft-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 12px;
+        }
+
+        .soft-list span {
+            border: 1px solid var(--border);
+            color: var(--primary-light);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: var(--bg-light);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.4s;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .project-card.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 40px rgba(37,99,235,0.2);
+        }
+
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+            background: linear-gradient(150deg, var(--bg-light), #16213a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-light);
+            font-size: 13px;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.08);
+        }
+
+        .project-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .project-content h3 {
+            margin-bottom: 10px;
+        }
+
+        .project-content p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 2;
+            flex: 1;
+        }
+
+        .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .tag {
+            font-size: 11px;
+            padding: 4px 10px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            color: var(--primary-light);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .project-links a {
+            font-size: 12px;
+            color: var(--primary-light);
+            border-bottom: 1px solid transparent;
+        }
+
+        .project-links a:hover {
+            border-color: var(--primary-light);
+        }
+
+
+        /* =========================
+           TIMELINE
+        ========================= */
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            right: 50%;
+            transform: translateX(50%);
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(transparent, var(--primary), transparent);
+        }
+
+        .timeline-item {
+            width: 50%;
+            padding: 20px 40px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            margin-right: 50%;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            top: 30px;
+            box-shadow: 0 0 15px var(--primary);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -7px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -7px;
+        }
+
+        .timeline-content {
+            background: var(--bg-light);
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 25px;
+            border-radius: 20px;
+        }
+
+        .timeline-content span {
+            color: var(--primary-light);
+            font-size: 13px;
+        }
+
+        .timeline-content h3 {
+            margin: 8px 0;
+        }
+
+        .timeline-content p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           EDUCATION
+        ========================= */
+
+        .edu-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .edu-card {
+            background: var(--bg-light);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 20px;
+            padding: 25px;
+            transition: 0.3s;
+        }
+
+        .edu-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-6px);
+        }
+
+        .edu-card span.date {
+            color: var(--primary-light);
+            font-size: 12px;
+        }
+
+        .edu-card h3 {
+            margin: 8px 0 4px;
+            font-size: 17px;
+        }
+
+        .edu-card p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .contact-card {
+            text-align: center;
+            padding: 25px;
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 20px;
+            background: var(--bg-light);
+            transition: 0.4s;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .contact-card.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .contact-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-8px);
+        }
+
+        .contact-icon {
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+
+        .contact-card h3 {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .contact-card p {
+            color: var(--muted);
+            font-size: 12px;
+            word-break: break-all;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 30px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            text-align: center;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        footer span {
+            color: var(--primary-light);
+        }
+
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 12px;
+        }
+
+        .footer-socials a {
+            color: var(--muted);
+            font-size: 12px;
+            transition: 0.3s;
+        }
+
+        .footer-socials a:hover {
+            color: var(--primary-light);
+        }
+
+
+        /* =========================
+           BACK TO TOP
+        ========================= */
+
+        .top-btn {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid var(--primary);
+            background: var(--bg-light);
+            color: var(--primary-light);
+            cursor: pointer;
+            display: none;
+            z-index: 999;
+            font-size: 18px;
+        }
+
+
+        /* =========================
+           SECTION REVEAL
+        ========================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: 0.8s;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media(max-width: 900px) {
+
+            .nav-links {
+                position: fixed;
+                top: 75px;
+                right: 0;
+                width: 220px;
+                height: calc(100vh - 75px);
+                background: rgba(15,23,42,0.97);
+                flex-direction: column;
+                padding: 30px 25px;
+                gap: 25px;
+                transform: translateX(100%);
+                transition: 0.35s;
+                border-left: 1px solid var(--border);
+            }
+
+            .nav-links.open {
+                transform: translateX(0);
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text {
+                order: 2;
+            }
+
+            .profile-wrapper {
+                order: 1;
+                width: 260px;
+                height: 260px;
+            }
+
+            .hero-text h1 {
+                font-size: 42px;
+            }
+
+            .socials,
+            .buttons {
+                justify-content: center;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .timeline::before {
+                right: 10px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                width: 100%;
+                margin: 0;
+                padding-right: 40px;
+                padding-left: 0;
+            }
+
+            .timeline-item .timeline-dot,
+            .timeline-item:nth-child(odd) .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot {
+                right: 3px;
+                left: auto;
+            }
+        }
+
+
+        @media(max-width: 600px) {
+
+            .profile-wrapper {
+                width: 200px;
+                height: 200px;
+            }
+
+            .hero-text h1 {
+                font-size: 34px;
+            }
+
+            .hero-text h2 {
+                font-size: 17px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .download-btn {
+                display: none;
+            }
+        }
+
+    </style>
 </head>
+
+
 <body>
-<div class="card">
-<h1>❤️ یه سوال مهم ❤️</h1>
-<h2>آیا با عارف دیت میای؟ 😌</h2>
-<div class="buttons">
-<button id="yes">بله 😍</button>
-<button id="no">نه 🙃</button>
-</div>
-</div>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav>
+
+    <div class="container nav-container">
+
+        <div class="logo">AE</div>
+
+        <ul class="nav-links" id="navLinks">
+
+            <li>
+                <a href="#home" class="nav-link active">خانه</a>
+            </li>
+
+            <li>
+                <a href="#about" class="nav-link">درباره من</a>
+            </li>
+
+            <li>
+                <a href="#skills" class="nav-link">مهارت‌ها</a>
+            </li>
+
+            <li>
+                <a href="#projects" class="nav-link">پروژه‌ها</a>
+            </li>
+
+            <li>
+                <a href="#experience" class="nav-link">مسیر حرفه‌ای</a>
+            </li>
+
+            <li>
+                <a href="#education" class="nav-link">تحصیلات</a>
+            </li>
+
+            <li>
+                <a href="#contact" class="nav-link">تماس با من</a>
+            </li>
+
+        </ul>
+
+
+        <div class="nav-right">
+
+            <!-- لینک فعلی GitHub -->
+            <a
+                href="https://github.com/aref01code"
+                class="download-btn"
+                target="_blank"
+                rel="noopener"
+            >
+                گیت‌هاب من
+            </a>
+
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="باز کردن منو"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="home">
+
+    <div class="container hero-container">
+
+
+        <!-- PROFILE IMAGE -->
+
+        <div class="profile-wrapper">
+
+            <img
+                class="profile-image"
+                src="https://mwallpaper.ir/wp-content/uploads/2021/10/%D9%88%D8%A7%D9%84%D9%BE%DB%8C%D9%BE%D8%B1-%DA%A9%D8%AF%D9%86%D9%88%DB%8C%D8%B3%DB%8C-html-1-768x432.jpg?v=1639598661"
+                alt="تصویر پروفایل عارف ابراهیمی"
+            >
+
+        </div>
+
+
+
+        <!-- HERO TEXT -->
+
+        <div class="hero-text">
+
+            <div class="small-title">
+                سلام، من هستم
+            </div>
+
+
+            <h1>
+                عارف <span>ابراهیمی</span>
+            </h1>
+
+
+            <h2>
+                توسعه‌دهنده پایتون | هوش مصنوعی و اتوماسیون
+            </h2>
+
+
+            <p>
+                طراحی و توسعه اسکریپت‌های هوشمند، ایجنت‌های هوش مصنوعی
+                و راهکارهای اتوماسیون با پایتون —
+                از وب‌اسکرپینگ تا چت‌بات‌ها و دستیارهای تخصصی.
+            </p>
+
+
+
+            <!-- SOCIAL LINKS -->
+
+            <div class="socials">
+
+                <a
+                    class="social"
+                    href="https://github.com/aref01code"
+                    target="_blank"
+                    rel="noopener"
+                    title="گیت‌هاب"
+                >
+                    GH
+                </a>
+
+
+                <a
+                    class="social"
+                    href="https://t.me/Covelop"
+                    target="_blank"
+                    rel="noopener"
+                    title="تلگرام"
+                >
+                    TG
+                </a>
+
+
+                <a
+                    class="social"
+                    href="mailto:arefmeta@gmail.com"
+                    title="ایمیل"
+                >
+                    @
+                </a>
+
+            </div>
+
+
+
+            <!-- BUTTONS -->
+
+            <div class="buttons">
+
+                <a
+                    href="https://github.com/aref01code"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn-primary"
+                >
+                    مشاهده گیت‌هاب
+                </a>
+
+
+                <a
+                    href="#contact"
+                    class="btn btn-outline"
+                >
+                    تماس با من
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section id="about">
+
+    <div class="container reveal">
+
+
+        <div class="section-title">
+
+            <span class="eyebrow">
+                ABOUT
+            </span>
+
+            <h2>
+                درباره من
+            </h2>
+
+            <p>
+                مسیر من در برنامه‌نویسی، هوش مصنوعی و اتوماسیون
+            </p>
+
+        </div>
+
+
+
+        <div class="about-grid">
+
+
+            <div class="glass-card">
+
+                <p class="about-text">
+
+                    علاقه‌ام به پایتون و هوش مصنوعی از همان ابتدا
+                    با نوشتن اسکریپت‌های ساده شروع شد و به‌مرور
+                    به یادگیری ماشین و ابزارهای هوش مصنوعی گسترش پیدا کرد.
+
+                    <br><br>
+
+                    امروز روی طراحی و ساخت ایجنت‌های هوشمند تمرکز دارم؛
+                    از چت‌بات‌های عمومی گرفته تا دستیارهای تخصصی
+                    مانند مشاور مالی هوشمند.
+
+                    <br><br>
+
+                    با زبان پایتون و طیف وسیعی از ماژول‌های آن —
+                    از ابزارهای وب‌اسکرپینگ و درخواست‌های HTTP
+                    مانند Requests تا کتابخانه‌های یادگیری ماشین —
+                    کار کرده‌ام.
+
+                    <br><br>
+
+                    همچنین توانایی طراحی و پیاده‌سازی وب‌سایت با وردپرس
+                    را دارم که امکان ارائه راهکارهای کامل‌تر،
+                    از بک‌اند هوشمند تا رابط کاربری وب،
+                    را فراهم می‌کند.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="glass-card">
+
+                <div class="stats">
+
+
+                    <div class="stat">
+
+                        <h3>
+                            Python
+                        </h3>
+
+                        <p>
+                            زبان اصلی توسعه
+                        </p>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <h3>
+                            AI
+                        </h3>
+
+                        <p>
+                            هوش مصنوعی و ایجنت‌ها
+                        </p>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <h3>
+                            ML
+                        </h3>
+
+                        <p>
+                            یادگیری ماشین
+                        </p>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <h3>
+                            Automation
+                        </h3>
+
+                        <p>
+                            اتوماسیون و اسکریپت‌نویسی
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     SKILLS
+========================= -->
+
+<section id="skills">
+
+    <div class="container reveal">
+
+
+        <div class="section-title">
+
+            <span class="eyebrow">
+                SKILLS
+            </span>
+
+            <h2>
+                مهارت‌های من
+            </h2>
+
+            <p>
+                تکنولوژی‌ها و حوزه‌هایی که در آن‌ها فعالیت می‌کنم
+            </p>
+
+        </div>
+
+
+
+        <div class="skills-grid">
+
+
+            <div class="skill-card">
+
+                <div class="skill-top">
+
+                    <h3>
+                        Python
+                    </h3>
+
+                    <span>
+                        اصلی
+                    </span>
+
+                </div>
+
+                <div class="progress">
+                    <span data-width="90%"></span>
+                </div>
+
+            </div>
+
+
+
+            <div class="skill-card">
+
+                <div class="skill-top">
+
+                    <h3>
+                        Machine Learning
+                    </h3>
+
+                    <span>
+                        تخصص
+                    </span>
+
+                </div>
+
+                <div class="progress">
+                    <span data-width="75%"></span>
+                </div>
+
+            </div>
+
+
+
+            <div class="skill-card">
+
+                <div class="skill-top">
+
+                    <h3>
+                        AI Agents
+                    </h3>
+
+                    <span>
+                        تمرکز
+                    </span>
+
+                </div>
+
+                <div class="progress">
+                    <span data-width="75%"></span>
+                </div>
+
+            </div>
+
+
+
+            <div class="skill-card">
+
+                <div class="skill-top">
+
+                    <h3>
+                        Web Scraping
+                    </h3>
+
+                    <span>
+                        تخصص
+                    </span>
+
+                </div>
+
+                <div class="progress">
+                    <span data-width="80%"></span>
+                </div>
+
+            </div>
+
+
+
+            <div class="skill-card">
+
+                <div class="skill-top">
+
+                    <h3>
+                        Automation
+                    </h3>
+
+                    <span>
+                        تخصص
+                    </span>
+
+                </div>
+
+                <div class="progress">
+                    <span data-width="80%"></span>
+                </div>
+
+            </div>
+
+
+
+            <div class="skill-card">
+
+                <div class="skill-top">
+
+                    <h3>
+                        WordPress
+                    </h3>
+
+                    <span>
+                        وب
+                    </span>
+
+                </div>
+
+                <div class="progress">
+                    <span data-width="70%"></span>
+                </div>
+
+            </div>
+
+
+
+            <div class="skill-card">
+
+                <div class="skill-top">
+
+                    <h3>
+                        Requests
+                    </h3>
+
+                    <span>
+                        Python
+                    </span>
+
+                </div>
+
+                <div class="progress">
+                    <span data-width="80%"></span>
+                </div>
+
+            </div>
+
+
+
+            <div class="skill-card">
+
+                <div class="skill-top">
+
+                    <h3>
+                        BeautifulSoup / Selenium
+                    </h3>
+
+                    <span>
+                        Web
+                    </span>
+
+                </div>
+
+                <div class="progress">
+                    <span data-width="75%"></span>
+                </div>
+
+            </div>
+
+
+
+            <div class="skill-card soft">
+
+                <div>
+
+                    مهارت‌های نرم
+
+                    <div class="soft-list">
+
+                        <span>
+                            حل مسئله
+                        </span>
+
+                        <span>
+                            یادگیری خودآموز
+                        </span>
+
+                        <span>
+                            دقت فنی
+                        </span>
+
+                        <span>
+                            پیگیری
+                        </span>
+
+                        <span>
+                            مدیریت زمان
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     PROJECTS
+========================= -->
+
+<section id="projects">
+
+    <div class="container reveal">
+
+
+        <div class="section-title">
+
+            <span class="eyebrow">
+                PROJECTS
+            </span>
+
+            <h2>
+                پروژه‌های منتخب
+            </h2>
+
+            <p>
+                برخی از پروژه‌های انجام‌شده در زمینه هوش مصنوعی، یادگیری ماشین و اتوماسیون
+            </p>
+
+        </div>
+
+
+
+        <div class="projects-grid">
+
+
+            <!-- PROJECT 1 -->
+
+            <div class="project-card">
+
+                <div class="project-image">
+
+                    <div>
+                        Diabetes Machine Learning
+                    </div>
+
+                </div>
+
+
+                <div class="project-content">
+
+                    <h3>
+                        تشخیص دیابت با یادگیری ماشین
+                    </h3>
+
+                    <p>
+                        توسعه یک مدل یادگیری ماشین برای پیش‌بینی
+                        احتمال ابتلا به دیابت بر اساس داده‌های پزشکی.
+                    </p>
+
+
+                    <div class="tags">
+
+                        <span class="tag">
+                            Python
+                        </span>
+
+                        <span class="tag">
+                            Machine Learning
+                        </span>
+
+                        <span class="tag">
+                            Classification
+                        </span>
+
+                    </div>
+
+
+                    <div class="project-links">
+
+                        <a
+                            href="https://github.com/aref01code"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            مشاهده پروژه‌ها در گیت‌هاب
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PROJECT 2 -->
+
+            <div class="project-card">
+
+                <div class="project-image">
+
+                    <div>
+                        CO2 Emission Prediction
+                    </div>
+
+                </div>
+
+
+                <div class="project-content">
+
+                    <h3>
+                        پیش‌بینی میزان انتشار CO2 خودروها
+                    </h3>
+
+                    <p>
+                        پیاده‌سازی مدل رگرسیون برای تخمین میزان
+                        انتشار دی‌اکسید کربن خودروها بر اساس مشخصات فنی آن‌ها.
+                    </p>
+
+
+                    <div class="tags">
+
+                        <span class="tag">
+                            Python
+                        </span>
+
+                        <span class="tag">
+                            Machine Learning
+                        </span>
+
+                        <span class="tag">
+                            Regression
+                        </span>
+
+                    </div>
+
+
+                    <div class="project-links">
+
+                        <a
+                            href="https://github.com/aref01code"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            مشاهده پروژه‌ها در گیت‌هاب
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PROJECT 3 -->
+
+            <div class="project-card">
+
+                <div class="project-image">
+
+                    <div>
+                        Face Recognition System
+                    </div>
+
+                </div>
+
+
+                <div class="project-content">
+
+                    <h3>
+                        سیستم تشخیص چهره
+                    </h3>
+
+                    <p>
+                        پیاده‌سازی الگوریتم شناسایی و تطبیق چهره
+                        برای تشخیص و مقایسه چهره‌ها.
+                    </p>
+
+
+                    <div class="tags">
+
+                        <span class="tag">
+                            Python
+                        </span>
+
+                        <span class="tag">
+                            Computer Vision
+                        </span>
+
+                        <span class="tag">
+                            Face Recognition
+                        </span>
+
+                    </div>
+
+
+                    <div class="project-links">
+
+                        <a
+                            href="https://github.com/aref01code"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            مشاهده پروژه‌ها در گیت‌هاب
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PROJECT 4 -->
+
+            <div class="project-card">
+
+                <div class="project-image">
+
+                    <div>
+                        Voice Controlled Smart Home
+                    </div>
+
+                </div>
+
+
+                <div class="project-content">
+
+                    <h3>
+                        خانه هوشمند کنترل‌شونده با صدا
+                    </h3>
+
+                    <p>
+                        طراحی یک سیستم اتوماسیون خانگی که امکان
+                        کنترل تجهیزات و عملکردهای مختلف خانه را
+                        با استفاده از فرمان صوتی فراهم می‌کند.
+                    </p>
+
+
+                    <div class="tags">
+
+                        <span class="tag">
+                            Python
+                        </span>
+
+                        <span class="tag">
+                            Automation
+                        </span>
+
+                        <span class="tag">
+                            Voice Control
+                        </span>
+
+                        <span class="tag">
+                            Smart Home
+                        </span>
+
+                    </div>
+
+
+                    <div class="project-links">
+
+                        <a
+                            href="https://github.com/aref01code"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            مشاهده پروژه‌ها در گیت‌هاب
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- OTHER PROJECTS -->
+
+            <div class="project-card">
+
+                <div class="project-image">
+
+                    <div>
+                        Web Scraping & Automation
+                    </div>
+
+                </div>
+
+
+                <div class="project-content">
+
+                    <h3>
+                        وب‌اسکرپینگ و اتوماسیون
+                    </h3>
+
+                    <p>
+                        انجام چندین پروژه در زمینه وب‌اسکرپینگ،
+                        ارسال درخواست‌های HTTP و اتوماسیون فرآیندهای تکراری
+                        با استفاده از پایتون.
+                    </p>
+
+
+                    <div class="tags">
+
+                        <span class="tag">
+                            Python
+                        </span>
+
+                        <span class="tag">
+                            Requests
+                        </span>
+
+                        <span class="tag">
+                            BeautifulSoup
+                        </span>
+
+                        <span class="tag">
+                            Selenium
+                        </span>
+
+                        <span class="tag">
+                            Automation
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- WORDPRESS -->
+
+            <div class="project-card">
+
+                <div class="project-image">
+
+                    <div>
+                        WordPress Website
+                    </div>
+
+                </div>
+
+
+                <div class="project-content">
+
+                    <h3>
+                        طراحی و پیاده‌سازی سایت با وردپرس
+                    </h3>
+
+                    <p>
+                        طراحی و پیاده‌سازی یک نمونه وب‌سایت با استفاده
+                        از WordPress برای ارائه راهکارهای وب.
+                    </p>
+
+
+                    <div class="tags">
+
+                        <span class="tag">
+                            WordPress
+                        </span>
+
+                        <span class="tag">
+                            Web
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     EXPERIENCE / PATH
+========================= -->
+
+<section id="experience">
+
+    <div class="container reveal">
+
+
+        <div class="section-title">
+
+            <span class="eyebrow">
+                JOURNEY
+            </span>
+
+            <h2>
+                مسیر حرفه‌ای و یادگیری
+            </h2>
+
+            <p>
+                مسیر رشد من در برنامه‌نویسی و هوش مصنوعی
+            </p>
+
+        </div>
+
+
+
+        <div class="timeline">
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-content">
+
+                    <span>
+                        Python
+                    </span>
+
+                    <h3>
+                        شروع برنامه‌نویسی با پایتون
+                    </h3>
+
+                    <p>
+                        شروع مسیر برنامه‌نویسی با Python و توسعه
+                        اسکریپت‌های کاربردی برای حل مسائل مختلف.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-content">
+
+                    <span>
+                        Web Scraping
+                    </span>
+
+                    <h3>
+                        ورود به وب‌اسکرپینگ و اتوماسیون
+                    </h3>
+
+                    <p>
+                        کار با Requests، BeautifulSoup، Selenium
+                        و توسعه اسکریپت‌های اتوماسیون.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-content">
+
+                    <span>
+                        Machine Learning
+                    </span>
+
+                    <h3>
+                        ورود به یادگیری ماشین
+                    </h3>
+
+                    <p>
+                        یادگیری مفاهیم Machine Learning و پیاده‌سازی
+                        پروژه‌هایی مانند تشخیص دیابت و پیش‌بینی انتشار CO2.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-content">
+
+                    <span>
+                        AI & Agents
+                    </span>
+
+                    <h3>
+                        تمرکز بر هوش مصنوعی و ایجنت‌ها
+                    </h3>
+
+                    <p>
+                        تمرکز بر طراحی و ساخت ایجنت‌های هوش مصنوعی،
+                        چت‌بات‌ها و دستیارهای تخصصی.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     EDUCATION
+========================= -->
+
+<section id="education">
+
+    <div class="container reveal">
+
+
+        <div class="section-title">
+
+            <span class="eyebrow">
+                EDUCATION
+            </span>
+
+            <h2>
+                تحصیلات
+            </h2>
+
+            <p>
+                پیشینه تحصیلی
+            </p>
+
+        </div>
+
+
+
+        <div class="edu-grid">
+
+
+            <div class="edu-card">
+
+                <span class="date">
+                    کارشناسی
+                </span>
+
+                <h3>
+                    مهندسی برق
+                </h3>
+
+                <p>
+                    دانشگاه صنعتی اصفهان
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section id="contact">
+
+    <div class="container reveal">
+
+
+        <div class="section-title">
+
+            <span class="eyebrow">
+                CONTACT
+            </span>
+
+            <h2>
+                تماس با من
+            </h2>
+
+            <p>
+                برای همکاری یا ارتباط با من
+            </p>
+
+        </div>
+
+
+
+        <div class="contact-grid">
+
+
+            <!-- GITHUB -->
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    GH
+                </div>
+
+                <h3>
+                    گیت‌هاب
+                </h3>
+
+                <p>
+                    aref01code
+                </p>
+
+                <br>
+
+                <a
+                    href="https://github.com/aref01code"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn-outline"
+                >
+                    مشاهده
+                </a>
+
+            </div>
+
+
+
+            <!-- TELEGRAM -->
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    TG
+                </div>
+
+                <h3>
+                    تلگرام
+                </h3>
+
+                <p>
+                    @Covelop
+                </p>
+
+                <br>
+
+                <a
+                    href="https://t.me/Covelop"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn-outline"
+                >
+                    پیام
+                </a>
+
+            </div>
+
+
+
+            <!-- EMAIL -->
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    @
+                </div>
+
+                <h3>
+                    ایمیل
+                </h3>
+
+                <p id="emailText">
+                    arefmeta@gmail.com
+                </p>
+
+                <br>
+                
+                <button
+                    class="btn btn-outline"
+                    id="copyEmailBtn"
+                >
+                    کپی ایمیل       
+                </button>
+
+
+            </div>
+
+
+
+            <!-- LOCATION -->
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    IR
+                </div>
+
+                <h3>
+                    مکان
+                </h3>
+
+                <p>
+                    اصفهان، ایران
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-socials">
+
+        <a
+            href="https://github.com/aref01code"
+            target="_blank"
+            rel="noopener"
+        >
+            گیت‌هاب
+        </a>
+
+
+        <a
+            href="https://t.me/Covelop"
+            target="_blank"
+            rel="noopener"
+        >
+            تلگرام
+        </a>
+
+
+        <a
+            href="mailto:arefmeta@gmail.com"
+        >
+            ایمیل
+        </a>
+
+    </div>
+
+
+    © <span id="year"></span>
+
+    <span>
+        عارف ابراهیمی
+    </span>
+
+    - تمامی حقوق محفوظ است.
+
+</footer>
+
+
+
+<!-- BACK TO TOP -->
+
+<button
+    class="top-btn"
+    id="topBtn"
+    aria-label="بازگشت به بالا"
+>
+    ↑
+</button>
+
+
+
 <script>
-const noBtn=document.getElementById("no");
-function moveButton(){
-const maxX=window.innerWidth-120;
-const maxY=window.innerHeight-80;
-noBtn.style.position="fixed";
-noBtn.style.left=(Math.random()*maxX)+"px";
-noBtn.style.top=(Math.random()*maxY)+"px";
-}
-noBtn.addEventListener("mouseover",moveButton);
-noBtn.addEventListener("touchstart",moveButton);
-document.getElementById("yes").addEventListener("click",()=>{
-document.body.innerHTML=`<div style="height:100vh;display:flex;justify-content:center;align-items:center;flex-direction:column;font-family:tahoma;background:linear-gradient(135deg,#ff9a9e,#fad0c4);text-align:center;"><h1>🥳 عالیه!</h1><h2>منتظر پیامتم ❤️</h2></div>`;
+
+
+/* =========================
+   YEAR
+========================= */
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+const menuToggle =
+    document.getElementById("menuToggle");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+
+menuToggle.addEventListener("click", () => {
+
+    menuToggle.classList.toggle("open");
+
+    navLinks.classList.toggle("open");
+
 });
+
+
+document.querySelectorAll(".nav-link").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        menuToggle.classList.remove("open");
+
+        navLinks.classList.remove("open");
+
+    });
+
+});
+
+
+
+/* =========================
+   ACTIVE NAV ON SCROLL
+========================= */
+
+const sections =
+    document.querySelectorAll("section[id]");
+
+const navItems =
+    document.querySelectorAll(".nav-link");
+
+
+function setActiveNav() {
+
+    let current = "";
+
+
+    sections.forEach(section => {
+
+        const top =
+            section.offsetTop - 120;
+
+
+        if (window.scrollY >= top) {
+
+            current =
+                section.getAttribute("id");
+
+        }
+
+    });
+
+
+    navItems.forEach(item => {
+
+        item.classList.remove("active");
+
+
+        if (
+            item.getAttribute("href") ===
+            "#" + current
+        ) {
+
+            item.classList.add("active");
+
+        }
+
+    });
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    setActiveNav
+);
+
+setActiveNav();
+
+
+
+/* =========================
+   SECTION REVEAL
+========================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+function revealOnScroll() {
+
+    revealElements.forEach(element => {
+
+        const position =
+            element.getBoundingClientRect().top;
+
+
+        if (
+            position <
+            window.innerHeight - 100
+        ) {
+
+            element.classList.add("active");
+
+        }
+
+    });
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    revealOnScroll
+);
+
+revealOnScroll();
+
+
+
+/* =========================
+   CARD ANIMATION
+========================= */
+
+const animatedCards =
+    document.querySelectorAll(
+        ".skill-card, .project-card, .contact-card"
+    );
+
+
+function revealCards() {
+
+    animatedCards.forEach(card => {
+
+        const top =
+            card.getBoundingClientRect().top;
+
+
+        if (
+            top <
+            window.innerHeight - 60
+        ) {
+
+            card.classList.add("in-view");
+
+        }
+
+    });
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    revealCards
+);
+
+revealCards();
+
+
+
+/* =========================
+   SKILL BAR ANIMATION
+========================= */
+
+const progressBars =
+    document.querySelectorAll(
+        ".progress span"
+    );
+
+
+function animateSkills() {
+
+    progressBars.forEach(bar => {
+
+        const barTop =
+            bar.getBoundingClientRect().top;
+
+
+        if (
+            barTop <
+            window.innerHeight - 100
+            &&
+            !bar.style.width
+        ) {
+
+            bar.style.width =
+                bar.dataset.width;
+
+        }
+
+    });
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    animateSkills
+);
+
+animateSkills();
+
+
+
+/* =========================
+   COPY EMAIL
+========================= */
+
+const copyEmailBtn =
+    document.getElementById(
+        "copyEmailBtn"
+    );
+
+
+const emailText =
+    document.getElementById(
+        "emailText"
+    ).textContent;
+
+
+copyEmailBtn.addEventListener(
+    "click",
+    () => {
+
+        navigator.clipboard
+            .writeText(emailText)
+            .then(() => {
+
+                copyEmailBtn.textContent =
+                    "کپی شد!";
+
+
+                setTimeout(() => {
+
+                    copyEmailBtn.textContent =
+                        "کپی ایمیل";
+
+                }, 2000);
+
+            });
+
+    }
+);
+
+
+
+/* =========================
+   BACK TO TOP
+========================= */
+
+const topBtn =
+    document.getElementById(
+        "topBtn"
+    );
+
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        topBtn.style.display =
+            window.scrollY > 500
+                ? "block"
+                : "none";
+
+    }
+);
+
+
+topBtn.addEventListener(
+    "click",
+    () => {
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+    }
+);
+
+
 </script>
+
+
 </body>
 </html>
